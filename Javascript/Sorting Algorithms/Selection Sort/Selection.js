@@ -37,5 +37,5 @@ function betterSelectionSort(arr) {
   return arr;
 }
 
-const result = betterSelectionSort([3, 1, 2, 0.5]);
+const result = betterSelectionSort([3, 1 , 1, 2, 2 , 2 , 0.5]);
 console.log(result);
