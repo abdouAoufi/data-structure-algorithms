@@ -36,31 +36,29 @@ console.log(sortedArray); // result => [ 1, 2, 3, 4, 6, 7, 9, 10, 11, 12 ]
 
 // ES2015
 // const swap2 = (arr, index1, index2) => {
-//   [arr[index1], arr[index2]] = [arr[index2], arr[index1]]; // ! powerfull 
+//   [arr[index1], arr[index2]] = [arr[index2], arr[index1]]; // ! powerfull
 // };
 
 // implementing bubbleSort
 
-// function betterBubleSort(arr) {
-//   let swap = true;
-//   let count = 0 ;
-//   for (let i = arr.length; i > 0; i--) {
-//     if (swap) {
-//       swap = false ;
-//       count ++ ;
-//       for (let j = 0; j < i - 1; j++) {
-//         if (arr[j] > arr[j + 1]) {
-//           swap = true ;
-//           [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-//         }
-//       }
-//     }
-//   }
-//   return [arr , count];
-// }
+function betterBubleSort(arr) {
+  let swap = true;
+  let count = 0;
+  for (let i = arr.length; i > 0; i--) {
+    if (swap) {
+      swap = false;
+      count++;
+      for (let j = 0; j < i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          swap = true;
+          [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        }
+      }
+    }
+  }
+  return arr;
+}
 
 // const unsortedArray2 = [2, 3, 1];
 // const sortedArrayBetter = betterBubleSort(unsortedArray2);
 // console.log(sortedArrayBetter);
-
-
