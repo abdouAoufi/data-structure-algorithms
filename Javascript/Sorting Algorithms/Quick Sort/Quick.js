@@ -17,25 +17,33 @@ Suppose we have an array like this !!
 
 */
 
-function QuickSort(arr) {
-  let target = 0;
-  let result = [];
-  let count = 0;
-  let itereation = 0;
-  while (itereation < arr.length) {
-    target = arr[itereation];
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[j] < target) {
-        count++;
-      }
-    }
-    result[count] = target;
-    count = 0;
-    itereation++;
+function pivot(arr, start = 0, end = arr.length) {
+  function swap(array, e1, e2) {
+    let temp = array[e1];
+    array[e1] = array[e2];
+    array[e2] = temp;
   }
-
-  console.log(result);
+  let pivot = arr[start];
+  let swapIdx = start;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i); // ? pivot = 4 , swapIdx = 2 , i = 7 , swap(arr[swapIdx], arr[i])
+    }
+  }
+  swap(arr, swapIdx, start);
+  return swapIdx; 
 }
 
-const arr = [5, 2, 1, 8, 4, 7, 6, 3];
-QuickSort(arr);
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+   if (left < right) { 
+      let pivotIdx = pivot(arr, left, right); // [1 , 3 , 2 , 4] ! (4) p => 3
+      quickSort(arr, left, pivotIdx - 1); // [1 , 3 , 2 ] => [1 , 2 , 3] ! (3) p=> 2 [1 , 2]  ! (2) p=> 1  [1] ! (1)
+      quickSort(arr, pivotIdx + 1, right); // [5 ,7 , 6 , 8 ] => [5 , 7 , 6 , 8] ! (5) p=> 4 [7 , 6 , 8] => [6 , 7 , 8]  !(6) 
+   }
+   return arr;
+}
+
+const result = quickSort([4, 8, 2, 1, 5, 7, 6, 3]);
+console.log(result);
