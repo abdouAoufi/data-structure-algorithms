@@ -23,11 +23,11 @@ function pivot(arr, start = 0, end = arr.length) {
     array[e1] = array[e2];
     array[e2] = temp;
   }
-  let pivot = arr[start];
-  let swapIdx = start;
+  let pivot = arr[start]; // 4 
+  let swapIdx = start; // 0 
   for (let i = start + 1; i < arr.length; i++) {
     if (pivot > arr[i]) {
-      swapIdx++;
+      swapIdx++; // 1
       swap(arr, swapIdx, i); // ? pivot = 4 , swapIdx = 2 , i = 7 , swap(arr[swapIdx], arr[i])
     }
   }
