@@ -67,10 +67,20 @@ class DoublyLinkedList {
     return this;
   }
 
+  set(index, newVal) {
+    const result = this.get(index);
+    if (result) {
+      result.val = newVal;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   get(index) {
     if (index < 0 || index >= this.length) return null;
-    if (index === 0) return this.head.val;
-    if (index === this.length - 1) return this.tail.val;
+    if (index === 0) return this.head;
+    if (index === this.length - 1) return this.tail;
     let count = 0;
     let pointer;
     const half = Math.floor(this.length / 2);
@@ -88,7 +98,42 @@ class DoublyLinkedList {
         count--;
       }
     }
-    return pointer.val;
+    return pointer;
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return null;
+    if (index === 0) {
+      this.unshif(val);
+      return true;
+    }
+    if (index === this.length) {
+      this.push(val);
+      return true;
+    }
+    const nodeToInsert = new Node(val);
+    const nodeBeforeTarget = this.get(index - 1);
+    const oldNext = nodeBeforeTarget.next;
+    nodeBeforeTarget.next = nodeToInsert;
+    nodeToInsert.previous = nodeBeforeTarget;
+    nodeToInsert.next = oldNext;
+    oldNext.previous = nodeBeforeTarget;
+    this.length++;
+    return true;
+  }
+  remove(index){
+     if(index < 0 || index >= this.length) return undefined ;
+     if(index === 0) return this.shift() ;
+     if (index === this.length - 1) return this.pop();
+     const nodeBeforeTarget = this.get(index - 1 );
+     const nodeTobeRemoved = nodeBeforeTarget.next ;
+     const nextNodeTarget = nodeTobeRemoved.next ;
+     nodeTobeRemoved.next = null ;
+     nodeTobeRemoved.previous = null ;
+     nextNodeTarget.previous = nodeBeforeTarget ;
+     nodeBeforeTarget.next = nextNodeTarget ;
+     this.length -- ; 
+     return nodeTobeRemoved ;
   }
   print() {
     var arr = [];
@@ -110,4 +155,5 @@ doublylinkedlist.push(20); // 4
 doublylinkedlist.push(22); // 5
 doublylinkedlist.push(24); // 6
 doublylinkedlist.push(26); // 7
-console.log(doublylinkedlist.get(3));
+console.log(doublylinkedlist.remove(0).val);
+doublylinkedlist.print();
