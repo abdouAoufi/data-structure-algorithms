@@ -5,7 +5,7 @@ first.next.next = new Node("Are");
 first.next.next.next = new Node("You ?");
 */
 
-class Node {
+class Node {    
   constructor(val) {
     this.val = val;
     this.next = null;
@@ -135,10 +135,10 @@ class SinglyLinkedList {
     var prev = null;
     var next;
     for (let i = 0; i < this.length; i++) {
-      next = node.next ; 
-      node.next = prev ;
-      prev = node ;
-      node = next;
+      next = node.next ; // li mor head next l9dim 
+      node.next = prev ; // limor head arbatha m3a pref w li hya null head => null
+      prev = node ; // prev => node => head
+      node = next; // node = node.next
     }
     return this;
   }
