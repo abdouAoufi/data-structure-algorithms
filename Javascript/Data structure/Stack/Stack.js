@@ -1,3 +1,4 @@
+// this is LIFO and i think it's sn object 
 class Node {
   constructor(val) {
     this.val = val;
