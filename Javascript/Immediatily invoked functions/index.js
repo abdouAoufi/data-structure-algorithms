@@ -23,14 +23,17 @@ function salamInEspagnole(firstName, lastName) {
   salam(arguments[0], arguments[1], "es");
 }
 
-salamInEnglish("Aoufi" , "Abderahmnae");
+// salamInEnglish("Aoufi" , "Abderahmnae");
 // ! function statement
-function greet(name) {
-  name = name || "No name !!";
+function greet(name = "no name") {
   console.log("Hello " + name);
 }
-// greet();
+
 // ! function expression
 const greetFunc = function (name) {
   console.log("Hello " + name);
 };
+// ! This is immediatilly invoked funciton expression (IIFE) 
+var greeting = (function (name) {return ("Hello " + name)})("Abdou");
+
+console.log(greeting);

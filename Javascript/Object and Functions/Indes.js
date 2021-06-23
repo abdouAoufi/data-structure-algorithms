@@ -27,4 +27,11 @@ const bigholder = {
   },
 };
 
-container.log();
+const holderr = function () {
+  small();
+  function small() {
+    console.log(this);
+  }
+};
+
+holderr();
