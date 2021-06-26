@@ -2,7 +2,7 @@
 // this is possible because of closures ! 
 function greeting(whattosay) {
   return function (name) {
-    console.log(whattosay + " " + name);
+    console.log(whattosay + " " + name); // whattosay still even though the stack of function went away ....
   };
 }
 
