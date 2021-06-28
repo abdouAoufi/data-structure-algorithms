@@ -52,6 +52,19 @@ class BinarySearchTree {
     if (!found) return false;
     return true;
   }
+  traverse(){
+    let node = this.root;
+    var queue = [];
+    var store = [];
+    queue.push(node);
+    while(queue.length > 0){
+      node = queue.shift();
+      store.push(node.value);
+      if(node.left) queue.push(node.left);
+      if(node.right) queue.push(node.right);
+    }
+    return store ;
+  }
 }
 
 //      10
@@ -66,5 +79,5 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
-var result = tree.find(7);
+var result = tree.traverse();
 console.log(result);
