@@ -52,18 +52,64 @@ class BinarySearchTree {
     if (!found) return false;
     return true;
   }
-  traverse(){
+  BFStraverse() {
     let node = this.root;
     var queue = [];
     var store = [];
     queue.push(node);
-    while(queue.length > 0){
+    while (queue.length > 0) {
       node = queue.shift();
       store.push(node.value);
-      if(node.left) queue.push(node.left);
-      if(node.right) queue.push(node.right);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
     }
-    return store ;
+    return store;
+  }
+  DFSPreOrder() {
+    let store = [];
+    let current = this.root;
+    function traverse(node) {
+      store.push(node.value);
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+    traverse(current);
+    return store;
+  }
+
+  BFSPostOrder() {
+    let store = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+      store.push(node.value);
+    }
+    traverse(current);
+    return store;
+  }
+  BFSInOrder() {
+    let store = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      store.push(node.value);
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+    traverse(current);
+    return store;
   }
 }
 
@@ -79,5 +125,5 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
-var result = tree.traverse();
+var result = tree.BFSPostOrder();
 console.log(result);
