@@ -118,12 +118,9 @@ class BinarySearchTree {
 // 2 | 7  | 11 | 16
 
 var tree = new BinarySearchTree();
-tree.insert(10);
-tree.insert(5);
-tree.insert(13);
-tree.insert(11);
-tree.insert(2);
-tree.insert(16);
-tree.insert(7);
-var result = tree.BFSPostOrder();
+tree.insert("html");
+tree.insert("head");
+tree.insert("title");
+tree.insert("body");
+var result = tree.DFSPreOrder();
 console.log(result);

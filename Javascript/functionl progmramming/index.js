@@ -18,7 +18,6 @@ const limiter = function (limit, item) {
 
 var arr4 = mapForEach([1, 2, 3], less(1)); // set permanent par to the limiter
 
-
 function less(lim) {
   var rslt = limiter.bind(this, lim);
   return rslt;
@@ -26,12 +25,12 @@ function less(lim) {
 
 // another solution
 
-var checkPastLimitSimplified = function(limiter) {
+var checkPastLimitSimplified = function (limiter) {
   return function (limiter, item) {
     return item > limiter;
   }.bind(this, limiter);
 };
 
-
 var arr5 = mapForEach([1, 2, 3], checkPastLimitSimplified(1)); // set permanent par to the limiter
 console.log(arr5);
+
