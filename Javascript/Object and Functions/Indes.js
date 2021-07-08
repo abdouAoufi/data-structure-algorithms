@@ -13,15 +13,17 @@ let container = {
 };
 
 function log() {
-  //   console.log(this); // ! this will point to the global object
+  console.log(this); // ! this will point to the global object
   this.hoby = "Demain";
 }
+
+log();
 
 const holder = function () {
   console.log(this); // ! this will point to the global object again !!
 };
 
-const bigholder = {
+const bigholder = { 
   anonymHolder: () => {
     console.log(this);
   },
@@ -34,4 +36,4 @@ const holderr = function () {
   }
 };
 
-holderr();
+// holderr();
