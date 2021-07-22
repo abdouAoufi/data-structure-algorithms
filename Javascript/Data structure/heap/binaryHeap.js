@@ -4,11 +4,11 @@ class MaxBinaryHeap {
   }
   insert(val) {
     this.values.push(val);
-    let index = this.values.length - 1;
-    const element = this.values[index];
+    let index = this.values.length - 1; // 2 - 1 => 1 
+    const element = this.values[index]; // 10
     while (index > 0) {
-      let parentIndex = Math.floor((index - 1) / 2);
-      let parent = this.values[parentIndex];
+      let parentIndex = Math.floor((index - 1) / 2); // 0
+      let parent = this.values[parentIndex]; // 10 
       if (parent === element) return undefined;
       if (parent > element) break;
       this.values[parentIndex] = element;
