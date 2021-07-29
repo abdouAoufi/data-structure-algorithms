@@ -26,10 +26,10 @@ function selectionSort(arr) {
 
 function betterSelectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
+    let lowest = i; // lowest = 0 ;
+    for (let j = i + 1; j < arr.length; j++) { // j = 1 => arr.length
+      if (arr[j] < arr[lowest]) { // 1 < 3 true 
+        lowest = j; // lowest = 1;
       }
     }
     if (i !== lowest) [arr[i], arr[lowest]] = [arr[lowest], arr[i]];
