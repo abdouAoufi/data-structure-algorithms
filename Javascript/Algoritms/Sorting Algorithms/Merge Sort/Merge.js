@@ -30,8 +30,11 @@ function sortMerge(arr) {
   return merge(left, right);
 }
 
-const rslt = sortMerge([1, 3, 5, 2, ]);
-console.log(rslt);
+// const rslt = sortMerge([1, 3, 5, 2, ]);
+// console.log(rslt);
+
+const resultMerge = merge([10, 24], [76, 73]);
+ console.log(resultMerge);
 
 /* 
 
