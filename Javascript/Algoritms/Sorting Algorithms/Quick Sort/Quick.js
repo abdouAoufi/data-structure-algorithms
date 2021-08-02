@@ -23,27 +23,30 @@ function pivot(arr, start = 0, end = arr.length) {
     array[e1] = array[e2];
     array[e2] = temp;
   }
-  let pivot = arr[start]; // 4 
-  let swapIdx = start; // 0 
+  let pivot = arr[start];
+  let swapIdx = start;
   for (let i = start + 1; i < arr.length; i++) {
     if (pivot > arr[i]) {
-      swapIdx++; // 1
+      swapIdx++;
       swap(arr, swapIdx, i); // ? pivot = 4 , swapIdx = 2 , i = 7 , swap(arr[swapIdx], arr[i])
     }
   }
+  console.log("Last swap index was : ", swapIdx, "And the start was : ", start);
   swap(arr, swapIdx, start);
-  return swapIdx; 
+  return swapIdx;
 }
-
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
-   if (left < right) { 
-      let pivotIdx = pivot(arr, left, right); // [1 , 3 , 2 , 4] ! (4) p => 3
-      quickSort(arr, left, pivotIdx - 1); // [1 , 3 , 2 ] => [1 , 2 , 3] ! (3) p=> 2 [1 , 2]  ! (2) p=> 1  [1] ! (1)
-      quickSort(arr, pivotIdx + 1, right); // [5 ,7 , 6 , 8 ] => [5 , 7 , 6 , 8] ! (5) p=> 4 [7 , 6 , 8] => [6 , 7 , 8]  !(6) 
-   }
-   return arr;
+  if (left < right) {
+    let pivotIdx = pivot(arr, left, right); // [1 , 3 , 2 , 4] ! (4) p => 3
+    quickSort(arr, left, pivotIdx - 1); // [1 , 3 , 2 ] => [1 , 2 , 3] ! (3) p=> 2 [1 , 2]  ! (2) p=> 1  [1] ! (1)
+    quickSort(arr, pivotIdx + 1, right); // [5 ,7 , 6 , 8 ] => [5 , 7 , 6 , 8] ! (5) p=> 4 [7 , 6 , 8] => [6 , 7 , 8]  !(6)
+  }
+  return arr;
 }
 
-const result = quickSort([4, 8, 2, 1, 5, 7, 6, 3]);
-console.log(result);
+// const result = quickSort([4, 8, 2, 1, 5, 7, 6, 3]);
+// console.log(result);
+
+const pivotResult = pivot([4, 8, 2, 1, 5, 7, 6, 3], 0, 8);
+console.log(pivotResult);

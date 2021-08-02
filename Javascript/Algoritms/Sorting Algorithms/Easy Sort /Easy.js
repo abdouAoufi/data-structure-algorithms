@@ -18,25 +18,24 @@ Suppose we have an array like this !!
 */
 
 function QuickSort(arr) {
-   let target = 0;
-   let result = [];
-   let count = 0;
-   let itereation = 0;
-   while (itereation < arr.length) {
-     target = arr[itereation];
-     for (let j = 0; j < arr.length; j++) {
-       if (arr[j] < target) {
-         count++;
-       }
-     }
-     result[count] = target;
-     count = 0;
-     itereation++;
-   }
- 
-   console.log(result);
- }
- 
- const arr = [5, 2, 1, 8, 4, 7, 6, 3];
- QuickSort(arr);
- 
+  let result = [];
+  let target = 0;
+  let count = 0;
+  let itereation = 0;
+  while (itereation < arr.length) {
+    target = arr[itereation];
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] < target) {
+        count++;
+      }
+    }
+    result[count] = target;
+    count = 0;
+    itereation++;
+  }
+
+  console.log(result);
+}
+
+const arr = [5, 2, 1, 8,12, 4, 7, 6, 3 , 199 , 122];
+QuickSort(arr);
