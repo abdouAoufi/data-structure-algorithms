@@ -18,7 +18,7 @@ function mostDegit(arr) {
 function radixSort(nums) {
   let mostDegitCount = mostDegit(nums);
   for (let k = 0; k < mostDegitCount; k++) {
-    let digitBuckts = Array.from({ length: 10 }, () => []);
+    let digitBuckts = Array.from({ length: 10 }, () => []); // create array and each element has empty array
     for (let i = 0; i < nums.length; i++) {
       let digit = getDegit(nums[i], k);
       digitBuckts[digit].push(nums[i]);
