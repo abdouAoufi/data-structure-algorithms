@@ -31,7 +31,7 @@ class Stack {
     }
     this.first = currentFirst.next;
     this.size--;
-    return currentFirst;
+    return currentFirst.val;
   }
   print() {
     let elem = this.first;
@@ -49,4 +49,5 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 stack.push(4);
-stack.print();
+console.log(stack.pop());
+// stack.print();

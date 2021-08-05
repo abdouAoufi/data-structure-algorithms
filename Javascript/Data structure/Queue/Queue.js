@@ -48,5 +48,6 @@ q.enQueue(1);
 q.enQueue(2);
 q.enQueue(3);
 q.enQueue(4);
+console.log(q);
 console.log(q.deQueue());
 // q.print();
