@@ -52,12 +52,12 @@ class BinarySearchTree {
     if (!found) return false;
     return true;
   }
-  BFStraverse() {
+  BreathFirstSearch() {
     let node = this.root;
-    var queue = [];
-    var store = [];
+    let queue = [];
+    let store = [];
     queue.push(node);
-    while (queue.length > 0) {
+    while (queue.length) {
       node = queue.shift();
       store.push(node.value);
       if (node.left) queue.push(node.left);
@@ -65,7 +65,7 @@ class BinarySearchTree {
     }
     return store;
   }
-  DFSPreOrder() {
+  DepthFirstSearchPreOrder() {
     let store = [];
     let current = this.root;
     function traverse(node) {
@@ -81,10 +81,11 @@ class BinarySearchTree {
     return store;
   }
 
-  BFSPostOrder() {
+  DepthFirstSearchPostOrder() {
     let store = [];
     let current = this.root;
     function traverse(node) {
+      console.log("Visited  ....", node.value);
       if (node.left) {
         traverse(node.left);
       }
@@ -92,11 +93,12 @@ class BinarySearchTree {
         traverse(node.right);
       }
       store.push(node.value);
+      console.log("Added   ++++", node.value);
     }
     traverse(current);
     return store;
   }
-  BFSInOrder() {
+  DepthFirstSearchInOrder() {
     let store = [];
     let current = this.root;
     function traverse(node) {
@@ -118,9 +120,11 @@ class BinarySearchTree {
 // 2 | 7  | 11 | 16
 
 var tree = new BinarySearchTree();
-tree.insert("html");
-tree.insert("head");
-tree.insert("title");
-tree.insert("body");
-var result = tree.DFSPreOrder();
-console.log(result);
+tree.insert(10);
+tree.insert(5);
+tree.insert(13);
+tree.insert(2);
+tree.insert(7);
+tree.insert(11);
+tree.insert(16);
+console.log(tree.DepthFirstSearchPostOrder());
