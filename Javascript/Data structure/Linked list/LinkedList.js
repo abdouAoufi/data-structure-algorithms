@@ -5,7 +5,7 @@ first.next.next = new Node("Are");
 first.next.next.next = new Node("You ?");
 */
 
-class Node {    
+class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
@@ -21,6 +21,7 @@ class SinglyLinkedList {
     this.head = null;
     this.tail = null;
   }
+
   push(val) {
     var node = new Node(val);
     if (!this.head) {
@@ -34,6 +35,7 @@ class SinglyLinkedList {
   }
 
   pop() {
+    // we can't traverse back....
     if (this.isEmpty()) return undefined;
     var current = this.head;
     var newTail = current;
@@ -48,7 +50,7 @@ class SinglyLinkedList {
       this.head = null;
       this.tail = null;
     }
-    return current.toString;
+    return current.toString();
   }
 
   shift() {
@@ -124,23 +126,38 @@ class SinglyLinkedList {
     this.length--;
     return nextPrev;
   }
+
   isEmpty() {
     return true ? !this.head : false;
   }
 
+  // reverse() {
+  //   var node = this.head;
+  //   this.head = this.tail;
+  //   this.tail = node;
+  //   var prev = null;
+  //   var next;
+  //   for (let i = 0; i < this.length; i++) {
+  //     next = node.next ; // li mor head next l9dim
+  //     node.next = prev ; // limor head arbatha m3a pref w li hya null head => null
+  //     prev = node ; // prev => node => head
+  //     node = next; // node = node.next
+  //   }
+  //   return this;
+  // }
+
   reverse() {
-    var node = this.head;
+    let node = this.head;
     this.head = this.tail;
     this.tail = node;
-    var prev = null;
-    var next;
-    for (let i = 0; i < this.length; i++) {
-      next = node.next ; // li mor head next l9dim 
-      node.next = prev ; // limor head arbatha m3a pref w li hya null head => null
-      prev = node ; // prev => node => head
-      node = next; // node = node.next
+    let next ; 
+    let prev = null ;
+    for(let i = 0 ; i < this.length ; i++){
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
     }
-    return this;
   }
   print() {
     var arr = [];
@@ -163,6 +180,5 @@ linkedList.push("Yasmine");
 linkedList.push("Abderahmane");
 linkedList.push("Ammar");
 linkedList.push("Tarek");
-var deletedItem = linkedList.remove(3);
 linkedList.reverse();
 linkedList.print();

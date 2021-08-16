@@ -85,7 +85,6 @@ class BinarySearchTree {
     let store = [];
     let current = this.root;
     function traverse(node) {
-      console.log("Visited  ....", node.value);
       if (node.left) {
         traverse(node.left);
       }
@@ -93,7 +92,6 @@ class BinarySearchTree {
         traverse(node.right);
       }
       store.push(node.value);
-      console.log("Added   ++++", node.value);
     }
     traverse(current);
     return store;
@@ -127,4 +125,4 @@ tree.insert(2);
 tree.insert(7);
 tree.insert(11);
 tree.insert(16);
-console.log(tree.DepthFirstSearchPostOrder());
+console.log(tree.DepthFirstSearchInOrder());
