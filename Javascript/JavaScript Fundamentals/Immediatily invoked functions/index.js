@@ -33,6 +33,7 @@ function greet(name = "no name") {
 const greetFunc = function (name) {
   console.log("Hello " + name);
 };
+
 // ! This is immediatilly invoked funciton expression (IIFE)
 var greeting = (function (name) {
   return "Hello " + name;
@@ -42,7 +43,7 @@ var greeting = (function (name) {
 
 // some valid expression in JS
 3;
-// ! that means invoke this funciton as soon as youre here statement exp IIFE!
+// ! that means invoke this funciton as soon as your'e here statement exp IIFE!
 (function (name) {
   var greeting = "hello ";
   console.log(greeting + name);

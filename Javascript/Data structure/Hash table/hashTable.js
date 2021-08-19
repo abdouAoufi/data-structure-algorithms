@@ -24,7 +24,7 @@ class HashTable {
     let index = this._hash(key);
     if (this.keyMap[index]) {
       for (let i = 0; i < this.keyMap[index].length; i++) {
-        if (this.keyMap[index][§][0] === key) {
+        if (this.keyMap[index][i][0] === key) {
           return this.keyMap[index][i][1];
         }
       }
@@ -57,6 +57,17 @@ class HashTable {
     }
     return keysArr;
   }
+  toString() {
+    let result = "";
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          result += `${this.keyMap[i][j][0]} : ${this.keyMap[i][j][1]} \n`;
+        }
+      }
+    }
+    return result;
+  }
 }
 
 let hash = new HashTable();
@@ -67,4 +78,4 @@ hash.set("c", "c");
 hash.set("d", "d");
 hash.set("f", "f");
 hash.set("df", "f");
-console.log(hash.keys());
+console.log(hash.keyMap);

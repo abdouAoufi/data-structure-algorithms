@@ -9,4 +9,6 @@ function hash(str, length) {
   console.log("Total => ", total);
 }
 
-hash("w", 10);
+let list = [[]];
+list[0].push([1, "Abodu"])
+console.log(list[0][0][1]);

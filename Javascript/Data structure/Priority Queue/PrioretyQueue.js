@@ -9,18 +9,18 @@ class PriorityQueue {
     this.values = [];
   }
   enqueue(val, priority) {
-    const node = new Node(val, priority);
+    const node = new Node(val, priority); 
     this.values.push(node);
-    let index = this.values.length - 1;
-    const element = this.values[index];
-    while (index > 0) {
-      let parentIndex = Math.floor((index - 1) / 2);
+    let childIndex = this.values.length - 1;
+    const child = this.values[childIndex];
+    while (childIndex > 0) {
+      let parentIndex = Math.floor((childIndex - 1) / 2);
       let parent = this.values[parentIndex];
-      if (parent.val === element.val) return undefined;
-      if (element.priority <= parent.priority) break;
-      this.values[parentIndex] = element;
-      this.values[index] = parent;
-      index = parentIndex; // this is so important
+      if (parent.val === child.val) return undefined;
+      if (parent.val > child.val) break;
+      this.values[childIndex] = parent ;
+      this.values[parentIndex] = child ;
+      index = parentIndex ;
     }
     return this;
   }
@@ -70,13 +70,13 @@ class PriorityQueue {
 }
 
 const pq = new PriorityQueue();
-pq.enqueue("html" , 1);
-pq.enqueue("css" , 2);
-pq.enqueue("javascript" , 10);
-pq.enqueue("react" , 5);
-pq.enqueue("node js" , 7);
-pq.enqueue("mongoDB" , 3);
-pq.enqueue("mySQL" , 4);
+pq.enqueue("html", 1);
+pq.enqueue("css", 2);
+pq.enqueue("javascript", 10);
+pq.enqueue("react", 5);
+pq.enqueue("node js", 7);
+pq.enqueue("mongoDB", 3);
+pq.enqueue("mySQL", 4);
 // pq.enqueue(1 , 1);
 console.log(pq.dequeue());
 console.log(pq.dequeue());

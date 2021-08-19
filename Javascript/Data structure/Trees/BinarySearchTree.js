@@ -125,4 +125,4 @@ tree.insert(2);
 tree.insert(7);
 tree.insert(11);
 tree.insert(16);
-console.log(tree.DepthFirstSearchInOrder());
+console.log(tree.DepthFirstSearchPreOrder());
