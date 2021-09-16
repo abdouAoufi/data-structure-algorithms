@@ -15,12 +15,19 @@ class OneDayArray {
     });
 
     let constructedPaths;
-    list.forEach((path) => {
+    list.forEach((path, index) => {
+      if (index === 0) {
+        return holder.push(
+          path.split("/").map((currentFolder) => {
+            return currentFolder + " --> ";
+          })
+        );
+      }
       let lastFolder = "";
-      constructedPaths = path.split("/").map((currentFolder) => {
+      constructedPaths = path.split("/").map((currentFolder, index) => {
         if (currentFolder in savedPattern) {
           lastFolder = currentFolder;
-          return ".".repeat(savedPattern[currentFolder].length) + " --> ";
+          return ".".repeat(savedPattern[currentFolder].length) + " ";
         } else {
           if (lastFolder in savedPattern) {
             return savedPattern[lastFolder] + " --> " + currentFolder;
